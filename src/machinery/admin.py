@@ -15,6 +15,7 @@ class ExtendInline(admin.TabularInline):
 class ImageInline(admin.TabularInline):
     model = Image
     extra = 0
+    readonly_fields = ('image_preview',)
 
 
 class MachineAdmin(admin.ModelAdmin):
