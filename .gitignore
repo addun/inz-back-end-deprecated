@@ -1,3 +1,5 @@
 .idea
 env
 inz-back-end.iml
+*.pyc
+src/db.sqlite3
