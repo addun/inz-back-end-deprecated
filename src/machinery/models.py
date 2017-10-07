@@ -30,6 +30,3 @@ class Image(models.Model):
 
     def image_preview(self):
         return mark_safe(u'<a href="%s"><img src="%s" width=150 /></a>' % (self.image.url, self.image.url))
-
-    def __unicode__(self):
-        return self.machine
