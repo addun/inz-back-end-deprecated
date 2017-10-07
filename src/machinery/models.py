@@ -2,12 +2,13 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
-
 # Create your models here.
+from providers.models import Firm
+
+
 class Machine(models.Model):
     name = models.CharField(max_length=50)
-    weight = models.DecimalField(max_digits=8, decimal_places=2)
+    provider = models.ForeignKey(to=Firm)
 
     def __unicode__(self):
         return self.name
