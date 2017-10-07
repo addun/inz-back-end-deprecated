@@ -80,6 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
             'read_default_file': './../db.conf',
+            'sql_mode': 'traditional',
         },
     }
 }
