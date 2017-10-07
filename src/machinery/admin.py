@@ -19,7 +19,9 @@ class ImageInline(admin.TabularInline):
 
 
 class MachineAdmin(admin.ModelAdmin):
+    list_display = ('name', 'provider')
     inlines = (ExtendInline, ImageInline,)
+
 
 
 admin.site.register(Machine, MachineAdmin)
