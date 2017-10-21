@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'django_cleanup',
 
     'machinery',
-    'providers',
-    'tree'
 ]
 
 MIDDLEWARE = [
