@@ -41,6 +41,9 @@ class MachineToolRequirements(MachineTool):
     touch_probing = models.OneToOneField('MeasuringCapability', on_delete=models.CASCADE, blank=True, null=True)
     automatically_pallet_changeable = models.BooleanField()
 
+    def __unicode__(self):
+        return self.description
+
 
 class MachiningCapability(models.Model):
     machining_capability_profile = (
@@ -56,6 +59,12 @@ class MachiningCapability(models.Model):
     description = schemas.SupportResource.text_optional()
     machining_size = models.OneToOneField('MachineSize', null=True, blank=True)
 
+    def __unicode__(self):
+        if self.description is not None:
+            return self.description
+        else:
+            return self.capability
+
     class Meta:
         db_table = 'machining_capability'
 
@@ -65,6 +74,9 @@ class SpindleCapability(models.Model):
     spindle_name = schemas.SupportResource.label()
     spindle_power = schemas.Measure.power_measure()
     maximum_drive_speed = schemas.Machining.rot_speed_measure()
+
+    def __unicode__(self):
+        return self.spindle_name
 
     class Meta:
         db_table = 'spindle_capability'
@@ -82,6 +94,9 @@ class PositioningCapability(models.Model):
     maximum_displacement_error_of_linear_axis = schemas.Measure.length_measure()
     maximum_repeatability_error_of_linear_axis = schemas.Measure.length_measure()
 
+    def __unicode__(self):
+        return unicode(self.maximum_range_of_motion)
+
     class Meta:
         db_table = 'positioning_capability'
 
@@ -96,8 +111,11 @@ class RangeOfMotion(models.Model):
     axis_name = schemas.SupportResource.label()
     motion_range = models.TextField()  # ToDo: angle_or_length (class AngleOrLength)
 
+    def __unicode__(self):
+        return self.axis_name
+
     class Meta:
-        db_table = 'Rangeo_of_motion'
+        db_table = 'range_of_motion'
 
 
 # class AngleOrLength(models.Model):
@@ -114,6 +132,9 @@ class AxisCapability(models.Model):
     number_of_axes = schemas.Measure.count_measure()
     number_of_simultaneous_axes = schemas.Measure.count_measure()
 
+    def __unicode__(self):
+        return u'axes: %s  simultaneous axes: %s' % (self.number_of_axes, self.number_of_simultaneous_axes)
+
     class Meta:
         db_table = 'axis_capability'
 
@@ -128,6 +149,12 @@ class MeasuringCapability(models.Model):
     """
     measuring_accuracy = schemas.SupportResource.text()
     description = schemas.SupportResource.text_optional()
+
+    def __unicode__(self):
+        if self.description is not None:
+            return self.description
+        else:
+            return self.measuring_accuracy
 
     class Meta:
         db_table = 'measuring_capability'
@@ -164,3 +191,9 @@ class MachineSize(models.Model):
     x = schemas.Measure.length_measure()
     y = schemas.Measure.length_measure()
     z = schemas.Measure.length_measure()
+
+    def __unicode__(self):
+        if self.description is not None:
+            return self.description
+        else:
+            return u'x:%s y:%s z:%s' % (self.x, self.y, self.z)
