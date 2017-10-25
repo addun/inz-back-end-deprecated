@@ -33,7 +33,6 @@ INTERNAL_IPS = [
 ]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,6 +47,7 @@ INSTALLED_APPS = [
 
     'machinery',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
