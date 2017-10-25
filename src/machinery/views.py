@@ -11,3 +11,8 @@ from .serializers import MachineToolRequirementsSerializer
 class MachineToolRequirementsList(generics.ListAPIView):
     queryset = MachineToolRequirements.objects.all()
     serializer_class = MachineToolRequirementsSerializer
+
+
+class MachineToolRequirementsDetail(generics.RetrieveAPIView):
+    queryset = MachineToolRequirements.objects.all()
+    serializer_class = MachineToolRequirementsSerializer
