@@ -139,7 +139,7 @@ class Machining(models.Model):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def rot_speed_measure(**kwargs):
+    def rot_speed(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
@@ -152,51 +152,51 @@ class Machining(models.Model):
 
 class Measure(models.Model):
     @staticmethod
-    def acceleration_measure(**kwargs):
+    def acceleration(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def count_measure(**kwargs):
+    def count(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def electric_current_measure(**kwargs):
+    def electric_current(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def length_measure(**kwargs):
+    def length(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def plane_angle_measure(**kwargs):
+    def plane_angle(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def mass_measure(**kwargs):
+    def mass(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def power_measure(**kwargs):
+    def power(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def pressure_measure(**kwargs):
+    def pressure(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def ratio_measure(**kwargs):
+    def ratio(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def time_measure(**kwargs):
+    def time(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def velocity_measure(**kwargs):
+    def velocity(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def volume_measur(**kwargs):
+    def volume(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     class Meta:
