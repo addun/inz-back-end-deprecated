@@ -1,6 +1,19 @@
 from django.db import models
 
 
+class Base(models.Model):
+    @staticmethod
+    def real(**kwargs):
+        return models.IntegerField()
+
+    @staticmethod
+    def integer(**kwargs):
+        return models.IntegerField()
+
+    class Meta:
+        abstract = True
+
+
 class DateTime(models.Model):
     @staticmethod
     def calendar_date(**kwargs):
