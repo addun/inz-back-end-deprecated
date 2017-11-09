@@ -14,6 +14,10 @@ class Base(models.Model):
     def string(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
+    @staticmethod
+    def boolean(**kwargs):
+        return models.BooleanField(**kwargs)
+
     class Meta:
         abstract = True
 
