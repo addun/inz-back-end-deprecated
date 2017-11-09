@@ -1,6 +1,15 @@
 from django.db import models
 
 
+class Select(models.Model):
+    @staticmethod
+    def angle_or_length(**kwargs):
+        return models.IntegerField(**kwargs)
+
+    class Meta:
+        abstract = True
+
+
 class Base(models.Model):
     @staticmethod
     def real(**kwargs):
