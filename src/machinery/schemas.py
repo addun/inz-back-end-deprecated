@@ -4,11 +4,15 @@ from django.db import models
 class Base(models.Model):
     @staticmethod
     def real(**kwargs):
-        return models.IntegerField()
+        return models.IntegerField(**kwargs)
 
     @staticmethod
     def integer(**kwargs):
-        return models.IntegerField()
+        return models.IntegerField(**kwargs)
+
+    @staticmethod
+    def string(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     class Meta:
         abstract = True
