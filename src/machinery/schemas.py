@@ -3,8 +3,8 @@ from django.db import models
 
 class DateTime(models.Model):
     @staticmethod
-    def calendar_date():
-        return models.DateField()
+    def calendar_date(**kwargs):
+        return models.DateField(**kwargs)
 
     class Meta:
         abstract = True
@@ -12,8 +12,8 @@ class DateTime(models.Model):
 
 class Geometry(models.Model):
     @staticmethod
-    def axis2_placement_3d():
-        return models.CharField(max_length=15)
+    def axis2_placement_3d(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     class Meta:
         abstract = True
@@ -21,96 +21,96 @@ class Geometry(models.Model):
 
 class KinematicStructure(models.Model):
     @staticmethod
-    def cylindrical_pair():
-        return models.CharField(max_length=15)
+    def cylindrical_pair(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def cylindrical_pair_range():
-        return models.CharField(max_length=15)
+    def cylindrical_pair_range(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def kinematic_joint():
-        return models.CharField(max_length=15)
+    def kinematic_joint(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def kinematic_link():
-        return models.CharField(max_length=15)
+    def kinematic_link(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def kinematic_link_representation():
-        return models.CharField(max_length=15)
+    def kinematic_link_representation(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def kinematic_link_representation_association():
-        return models.CharField(max_length=15)
+    def kinematic_link_representation_association(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def kinematic_link_representation_relation():
-        return models.CharField(max_length=15)
+    def kinematic_link_representation_relation(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def kinematic_pair():
-        return models.CharField(max_length=15)
+    def kinematic_pair(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def kinematic_property_definition():
-        return models.CharField(max_length=15)
+    def kinematic_property_definition(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def kinematic_structure():
-        return models.CharField(max_length=15)
+    def kinematic_structure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def mechanism():
-        return models.CharField(max_length=15)
+    def mechanism(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def pair_actuator():
-        return models.CharField(max_length=15)
+    def pair_actuator(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def prismatic_pair():
-        return models.CharField(max_length=15)
+    def prismatic_pair(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def prismatic_pair_range():
-        return models.CharField(max_length=15)
+    def prismatic_pair_range(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def revolute_pair():
-        return models.CharField(max_length=15)
+    def revolute_pair(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def revolute_pair_range():
-        return models.CharField(max_length=15)
+    def revolute_pair_range(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def rotational_range_measure():
-        return models.CharField(max_length=15)
+    def rotational_range_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def simple_pair_range():
-        return models.CharField(max_length=15)
+    def simple_pair_range(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def spherical_pair():
-        return models.CharField(max_length=15)
+    def spherical_pair(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def spherical_pair_range():
-        return models.CharField(max_length=15)
+    def spherical_pair_range(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def su_parameters():
-        return models.CharField(max_length=15)
+    def su_parameters(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def translational_range_measure():
-        return models.CharField(max_length=15)
+    def translational_range_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def unlimited_range():
-        return models.CharField(max_length=15)
+    def unlimited_range(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     class Meta:
         abstract = True
@@ -118,16 +118,16 @@ class KinematicStructure(models.Model):
 
 class Machining(models.Model):
     @staticmethod
-    def project():
-        return models.CharField(max_length=15)
+    def project(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def rot_speed_measure():
-        return models.CharField(max_length=15)
+    def rot_speed_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def workplan():
-        return models.CharField(max_length=15)
+    def workplan(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     class Meta:
         abstract = True
@@ -135,52 +135,52 @@ class Machining(models.Model):
 
 class Measure(models.Model):
     @staticmethod
-    def acceleration_measure():
-        return models.CharField(max_length=15)
+    def acceleration_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def count_measure():
-        return models.CharField(max_length=15)
+    def count_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def electric_current_measure():
-        return models.CharField(max_length=15)
+    def electric_current_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def length_measure():
-        return models.CharField(max_length=15)
+    def length_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def plane_angle_measure():
-        return models.CharField(max_length=15)
+    def plane_angle_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def mass_measure():
-        return models.CharField(max_length=15)
+    def mass_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def power_measure():
-        return models.CharField(max_length=15)
+    def power_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def pressure_measure():
-        return models.CharField(max_length=15)
+    def pressure_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def ratio_measure():
-        return models.CharField(max_length=15)
+    def ratio_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def time_measure():
-        return models.CharField(max_length=15)
+    def time_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def velocity_measure():
-        return models.CharField(max_length=15)
+    def velocity_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def volume_measur():
-        return models.CharField(max_length=15)
+    def volume_measur(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     class Meta:
         abstract = True
@@ -188,8 +188,8 @@ class Measure(models.Model):
 
 class ProductDefinition(models.Model):
     @staticmethod
-    def product_definition():
-        return models.CharField(max_length=15)
+    def product_definition(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     class Meta:
         abstract = True
@@ -197,16 +197,16 @@ class ProductDefinition(models.Model):
 
 class ProductPropertyDefinition(models.Model):
     @staticmethod
-    def characterized_definition():
-        return models.CharField(max_length=15)
+    def characterized_definition(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def characterized_object():
-        return models.CharField(max_length=15)
+    def characterized_object(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def characterized_product_definition():
-        return models.CharField(max_length=15)
+    def characterized_product_definition(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     class Meta:
         abstract = True
@@ -214,8 +214,8 @@ class ProductPropertyDefinition(models.Model):
 
 class ProductPropertyRepresentation(models.Model):
     @staticmethod
-    def shape_representation():
-        return models.CharField(max_length=15)
+    def shape_representation(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     class Meta:
         abstract = True
@@ -223,20 +223,49 @@ class ProductPropertyRepresentation(models.Model):
 
 class SupportResource(models.Model):
     @staticmethod
-    def identifier():
-        return models.CharField(max_length=15)
+    def identifier(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def label():
-        return models.CharField(max_length=15)
+    def label(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
-    def text():
-        return models.CharField(max_length=15)
+    def text(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
+
+    class Meta:
+        abstract = True
+
+
+class Enumerations(models.Model):
+    @staticmethod
+    def units():
+        UNITS_TYPE = (
+            ('INCH', 'small'),
+            ('INCH_AND_METRIC', 'inch and metric'),
+            ('METRIC', 'metric'),
+        )
+        return models.CharField(max_length=25, choices=UNITS_TYPE)
 
     @staticmethod
-    def text_optional():
-        return models.CharField(max_length=15, blank=True, null=True)
+    def interpolation():
+        INTERPOLATION = (
+            ('CIRCULAR', 'circular'),
+            ('HELICAL', 'helical'),
+            ('LINEAR', 'linear'),
+            ('NURBS', 'nurbs'),
+            ('OTHER', 'other'),
+        )
+        return models.CharField(max_length=25, choices=INTERPOLATION)
+
+    @staticmethod
+    def tool_compensation():
+        TOOL_COMPENSATION = (
+            ('TOOL_LENGTH', 'tool_length'),
+            ('TOOL_RADIUS', 'tool_radius'),
+        )
+        return models.CharField(max_length=25, choices=TOOL_COMPENSATION)
 
     class Meta:
         abstract = True
