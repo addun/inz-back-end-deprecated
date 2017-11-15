@@ -290,11 +290,21 @@ class Enumerations(models.Model):
         return models.CharField(max_length=25, choices=INTERPOLATION)
 
     @staticmethod
+    def tool_storage_configuration():
+        TOOL_STORAGE_CONFIGURATION = (
+            ('BI_DIRECTIONAL', 'bi directional'),
+            ('BOX_MATRIX', 'box matrix'),
+            ('UNI_DIRECTIONAL', 'uni directional'),
+        )
+        return models.CharField(max_length=25, choices=TOOL_STORAGE_CONFIGURATION)
+
+    @staticmethod
     def tool_compensation():
         TOOL_COMPENSATION = (
             ('TOOL_LENGTH', 'tool_length'),
             ('TOOL_RADIUS', 'tool_radius'),
         )
+
         return models.CharField(max_length=25, choices=TOOL_COMPENSATION)
 
     class Meta:
