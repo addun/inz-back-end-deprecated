@@ -19,7 +19,7 @@ class WorkplanPhysicalResourceAssociation(models.Model):
 
 
 class SpindleCapability(models.Model):
-    workplan_of_resource = schemas.Machining.workplan()
+    machine_tool_requirement = models.ForeignKey(MachineToolRequirement, on_delete=models.CASCADE)
     spindle_name = schemas.SupportResource.label()
     spindle_power = schemas.Measure.power()
     maximum_drive_speed = schemas.Measure.count()
