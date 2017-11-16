@@ -270,24 +270,37 @@ class SupportResource(models.Model):
 
 class Enumerations(models.Model):
     @staticmethod
-    def units():
+    def units(**kwargs):
         UNITS_TYPE = (
             ('INCH', 'small'),
             ('INCH_AND_METRIC', 'inch and metric'),
             ('METRIC', 'metric'),
         )
-        return models.CharField(max_length=25, choices=UNITS_TYPE)
+        return models.CharField(max_length=25, choices=UNITS_TYPE, **kwargs)
+
     @staticmethod
-    def means_of_coolant_delivery():
+    def pallet_storage_configuration(**kwargs):
+        PALLET_STORAGE_CONFIGURATION = (
+            ('CAROUSEL', 'carousel'),
+            ('CAROUSEL_2_PLACE', 'carousel 2 place'),
+            ('CHAIN', 'chain'),
+            ('FIXED_2_PLACE', 'fixed 2 place'),
+            ('MULTI_STOREY', 'multi storey'),
+            ('STRAIGHT_LINE', 'straight line'),
+        )
+        return models.CharField(max_length=25, choices=PALLET_STORAGE_CONFIGURATION, **kwargs)
+
+    @staticmethod
+    def means_of_coolant_delivery(**kwargs):
         MEANS_OF_COOLANT_DELIVERY = (
             ('EXTERNAL', 'external'),
             ('THRU_SPINDLE', 'thru spindle'),
             ('THRU_TURRET', 'thru turret'),
         )
-        return models.CharField(max_length=25, choices=MEANS_OF_COOLANT_DELIVERY)
+        return models.CharField(max_length=25, choices=MEANS_OF_COOLANT_DELIVERY, **kwargs)
 
     @staticmethod
-    def interpolation():
+    def interpolation(**kwargs):
         INTERPOLATION = (
             ('CIRCULAR', 'circular'),
             ('HELICAL', 'helical'),
@@ -295,28 +308,28 @@ class Enumerations(models.Model):
             ('NURBS', 'nurbs'),
             ('OTHER', 'other'),
         )
-        return models.CharField(max_length=25, choices=INTERPOLATION)
+        return models.CharField(max_length=25, choices=INTERPOLATION, **kwargs)
 
     @staticmethod
-    def tool_storage_configuration():
+    def tool_storage_configuration(**kwargs):
         TOOL_STORAGE_CONFIGURATION = (
             ('BI_DIRECTIONAL', 'bi directional'),
             ('BOX_MATRIX', 'box matrix'),
             ('UNI_DIRECTIONAL', 'uni directional'),
         )
-        return models.CharField(max_length=25, choices=TOOL_STORAGE_CONFIGURATION)
+        return models.CharField(max_length=25, choices=TOOL_STORAGE_CONFIGURATION, **kwargs)
 
     @staticmethod
-    def tool_compensation():
+    def tool_compensation(**kwargs):
         TOOL_COMPENSATION = (
             ('TOOL_LENGTH', 'tool length'),
             ('TOOL_RADIUS', 'tool radius'),
         )
 
-        return models.CharField(max_length=25, choices=TOOL_COMPENSATION)
+        return models.CharField(max_length=25, choices=TOOL_COMPENSATION, **kwargs)
 
     @staticmethod
-    def coolant_type():
+    def coolant_type(**kwargs):
         COOLANT_TYPE = (
             ('AIR', 'air'),
             ('FLOOD', 'flood'),
@@ -325,7 +338,18 @@ class Enumerations(models.Model):
             ('NONE', 'none'),
         )
 
-        return models.CharField(max_length=25, choices=COOLANT_TYPE)
+        return models.CharField(max_length=25, choices=COOLANT_TYPE, **kwargs)
+
+    @staticmethod
+    def fixture_style(**kwargs):
+        FIXTURE_STYLE = (
+            ('CHUCK_FIXTURE', 'chuck fixture'),
+            ('HOLE', 'hole'),
+            ('T_SLOT_FIXTURE', 't slot fixture'),
+            ('VACUUM', 'vacuum'),
+        )
+
+        return models.CharField(max_length=25, choices=FIXTURE_STYLE, **kwargs)
 
     class Meta:
         abstract = True
