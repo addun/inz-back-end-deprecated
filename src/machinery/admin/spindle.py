@@ -1,6 +1,7 @@
 from django.contrib import admin
-from django.contrib.contenttypes.admin import GenericTabularInline, GenericStackedInline
+from django.contrib.contenttypes.admin import GenericTabularInline
 
+from machinery.admin.element_capability import ChuckInline
 from machinery.models import SpindleRange, Spindle, WorkSpindle, TaperedSpindle, StraightSpindle, ThreadedSpindle
 
 
@@ -12,14 +13,15 @@ class ToolAssemblyInline(GenericTabularInline):
 @admin.register(Spindle)
 class SpindleAdmin(admin.ModelAdmin):
     inlines = [
-        ToolAssemblyInline
+        ToolAssemblyInline,
     ]
 
 
 @admin.register(WorkSpindle)
 class WorkSpindleAdmin(admin.ModelAdmin):
     inlines = [
-        ToolAssemblyInline
+        ToolAssemblyInline,
+        ChuckInline
     ]
 
 

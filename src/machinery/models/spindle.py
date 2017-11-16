@@ -19,7 +19,6 @@ class WorkSpindle(Spindle):
     round_bar_stock_diameter = schemas.Measure.length(null=True, blank=True)
     through_hole_diameter = schemas.Measure.length(null=True, blank=True)
     hex_bar_stock_capacity = schemas.Base.real(null=True, blank=True)
-    chuck = models.ForeignKey(Chuck, null=True, blank=True)
 
 
 class ToolSpindle(Spindle):

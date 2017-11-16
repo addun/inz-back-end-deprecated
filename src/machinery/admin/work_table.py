@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
 
+from machinery.admin import ChuckInline
 from machinery.models.work_table import RectangularWorkTable, Pallet, CircularWorkTable, TSlot
 
 
@@ -10,22 +11,23 @@ class TSlotGenericInline(GenericStackedInline):
     max_num = 1
 
 
-@admin.register(RectangularWorkTable)
-class RectangularWorkTableAdmin(admin.ModelAdmin):
+class WorkTable(admin.ModelAdmin):
     inlines = [
-        TSlotGenericInline
+        TSlotGenericInline,
+        ChuckInline
     ]
+
+
+@admin.register(RectangularWorkTable)
+class RectangularWorkTableAdmin(WorkTable):
+    pass
 
 
 @admin.register(Pallet)
-class PalletAdmin(admin.ModelAdmin):
-    inlines = [
-        TSlotGenericInline
-    ]
+class PalletAdmin(WorkTable):
+    pass
 
 
 @admin.register(CircularWorkTable)
-class CircularWorkTableAdmin(admin.ModelAdmin):
-    inlines = [
-        TSlotGenericInline
-    ]
+class CircularWorkTableAdmin(WorkTable):
+    pass

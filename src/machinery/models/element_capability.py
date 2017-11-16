@@ -1,3 +1,5 @@
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 from machinery import schemas
@@ -36,6 +38,10 @@ class Collet(ElementCapability):
 
 
 class Chuck(ElementCapability):
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
     minimum_part_diameter = schemas.Measure.length()
     maximum_part_diameter = schemas.Measure.length()
     number_of_jaws = schemas.Measure.count()

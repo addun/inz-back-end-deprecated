@@ -1,11 +1,13 @@
 from django.contrib import admin
+from django.contrib.contenttypes.admin import GenericStackedInline
 
 from machinery.models import Chuck, Collet, BarFeeder, Coolant, Tailstock
 
 
-@admin.register(Chuck)
-class ChuckAdmin(admin.ModelAdmin):
-    pass
+class ChuckInline(GenericStackedInline):
+    model = Chuck
+    max_num = 1
+    extra = 0
 
 
 @admin.register(Collet)

@@ -10,7 +10,6 @@ class WorkTable(ElementCapability):
     rotatable = schemas.Base.boolean()
     workpiece_weight = schemas.Measure.mass(null=True, blank=True)
     fixture_style = schemas.Enumerations.fixture_style(null=True, blank=True)
-    chuck = models.ForeignKey(Chuck, null=True, blank=True)
 
     class Meta:
         abstract = True
