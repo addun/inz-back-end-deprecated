@@ -301,8 +301,8 @@ class Enumerations(models.Model):
     @staticmethod
     def tool_compensation():
         TOOL_COMPENSATION = (
-            ('TOOL_LENGTH', 'tool_length'),
-            ('TOOL_RADIUS', 'tool_radius'),
+            ('TOOL_LENGTH', 'tool length'),
+            ('TOOL_RADIUS', 'tool radius'),
         )
 
         return models.CharField(max_length=25, choices=TOOL_COMPENSATION)
