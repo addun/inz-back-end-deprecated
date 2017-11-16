@@ -1,9 +1,8 @@
-from django.db import models
-
 from machinery import schemas
+from machinery.models import MachineToolAxis
 
 
-class RotaryAxis(models.Model):
+class RotaryAxis(MachineToolAxis):
     displacement_angle_error = schemas.Measure.plane_angle()
     repeatability_angle_error = schemas.Measure.plane_angle()
     rapid_traverse_rotation_feed_rate = schemas.Machining.rot_speed()
