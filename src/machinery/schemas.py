@@ -320,5 +320,13 @@ class Other(models.Model):
     def rot_jerk_measure(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
+    @staticmethod
+    def jerk_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
+
+    @staticmethod
+    def torque_measure(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
+
     class Meta:
         abstract = True
