@@ -277,6 +277,14 @@ class Enumerations(models.Model):
             ('METRIC', 'metric'),
         )
         return models.CharField(max_length=25, choices=UNITS_TYPE)
+    @staticmethod
+    def means_of_coolant_delivery():
+        MEANS_OF_COOLANT_DELIVERY = (
+            ('EXTERNAL', 'external'),
+            ('THRU_SPINDLE', 'thru spindle'),
+            ('THRU_TURRET', 'thru turret'),
+        )
+        return models.CharField(max_length=25, choices=MEANS_OF_COOLANT_DELIVERY)
 
     @staticmethod
     def interpolation():
@@ -306,6 +314,18 @@ class Enumerations(models.Model):
         )
 
         return models.CharField(max_length=25, choices=TOOL_COMPENSATION)
+
+    @staticmethod
+    def coolant_type():
+        COOLANT_TYPE = (
+            ('AIR', 'air'),
+            ('FLOOD', 'flood'),
+            ('MICRO', 'micro'),
+            ('MIST', 'mist'),
+            ('NONE', 'none'),
+        )
+
+        return models.CharField(max_length=25, choices=COOLANT_TYPE)
 
     class Meta:
         abstract = True
