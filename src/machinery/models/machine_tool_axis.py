@@ -1,9 +1,10 @@
 from django.db import models
 
 from machinery import schemas
+from machinery.models.element_capability import ElementCapability
 
 
-class MachineToolAxis(models.Model):
+class MachineToolAxis(ElementCapability):
     axis_name = schemas.SupportResource.label()
 
 

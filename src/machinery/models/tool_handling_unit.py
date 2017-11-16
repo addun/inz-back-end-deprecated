@@ -3,9 +3,10 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 from machinery import schemas
+from machinery.models.element_capability import ElementCapability
 
 
-class ToolHandlingUnit(models.Model):
+class ToolHandlingUnit(ElementCapability):
     class Meta:
         abstract = True
 
