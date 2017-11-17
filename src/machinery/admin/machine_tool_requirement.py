@@ -26,12 +26,19 @@ class AxisCapabilityInline(admin.StackedInline):
 class PositioningCapabilityInline(admin.TabularInline):
     model = PositioningCapability
     extra = 1
+    show_change_link = True
 
 
-# ToDo: add model to inline
-class RangeOfMotionStackedInline(admin.StackedInline):
+class RangeOfMotionStackedInline(admin.TabularInline):
     model = RangeOfMotion
-    extra = 1
+    extra = 0
+
+
+@admin.register(PositioningCapability)
+class RangeOfMotionAdmin(admin.ModelAdmin):
+    inlines = [
+        RangeOfMotionStackedInline
+    ]
 
 
 @admin.register(MachineToolRequirement)
