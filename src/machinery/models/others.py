@@ -24,3 +24,10 @@ class MeasuringCapability(models.Model):
     content_object = GenericForeignKey('content_type', 'object_id')
     measuring_accuracy = schemas.SupportResource.text()
     description = schemas.SupportResource.text(null=True, blank=True)
+
+
+class MachineTool(models.Model):
+    description = schemas.SupportResource.text()
+
+    class Meta:
+        abstract = True
