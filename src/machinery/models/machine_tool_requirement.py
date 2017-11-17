@@ -1,9 +1,10 @@
 from django.db import models
 
 from machinery import schemas
+from machinery.models.others import MachineTool
 
 
-class MachineToolRequirement(models.Model):
+class MachineToolRequirement(MachineTool):
     number_of_tools_in_tool_magazine = schemas.Measure.count(null=True, blank=True)
     automatically_pallet_changeable = schemas.Base.boolean()
 
