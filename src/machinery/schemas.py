@@ -329,6 +329,18 @@ class Enumerations(models.Model):
         return models.CharField(max_length=25, choices=TOOL_COMPENSATION, **kwargs)
 
     @staticmethod
+    def machining_capability_profile(**kwargs):
+        MACHINING_CAPABILITY_PROFILE = (
+            ('BORING_CAPABILITY', 'boring capability'),
+            ('DRILLING_CAPABILITY', 'drilling capability'),
+            ('GUNDRILL_CAPABILITY', 'gundrill capability'),
+            ('MILLING_CAPABILITY', 'milling capability'),
+            ('TURNING_CAPABILITY', 'turning capability'),
+        )
+
+        return models.CharField(max_length=25, choices=MACHINING_CAPABILITY_PROFILE, **kwargs)
+
+    @staticmethod
     def coolant_type(**kwargs):
         COOLANT_TYPE = (
             ('AIR', 'air'),

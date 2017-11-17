@@ -7,3 +7,4 @@ from others import *
 from rotary_axis import *
 from spindle import *
 from tool_handling_unit import *
+from machining_capability import *
