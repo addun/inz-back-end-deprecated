@@ -5,7 +5,7 @@ from machinery.models import Device, MeasuringCapability
 
 class DeviceInline(GenericStackedInline):
     model = Device
-    extra = 0
+    extra = 1
     max_num = 1
     min_num = 1
 
