@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 from machinery import schemas
-from machinery.models.element_capability import ElementCapability, Chuck
+from machinery.models.element_capability import ElementCapability
 
 
 class WorkTable(ElementCapability):
@@ -28,6 +28,10 @@ class TSlot(models.Model):
         unique_together = ('content_type', 'object_id')
 
 
+class CircularWorkTable(WorkTable):
+    table_diameter = schemas.Measure.length()
+
+
 class RectangularWorkTable(WorkTable):
     table_width = schemas.Measure.length()
     table_length = schemas.Measure.length()
@@ -42,7 +46,3 @@ class Pallet(WorkTable):
     pallet_change_time_minimum = schemas.Measure.time(null=True, blank=True)
     pallet_change_time_maximum = schemas.Measure.time(null=True, blank=True)
     pallet_type = schemas.Base.string(null=True, blank=True)
-
-
-class CircularWorkTable(WorkTable):
-    table_diameter = schemas.Measure.length()

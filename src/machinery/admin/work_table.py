@@ -1,19 +1,19 @@
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
 
-from machinery.admin import ChuckInline
-from machinery.models.work_table import RectangularWorkTable, Pallet, CircularWorkTable, TSlot
+from machinery.admin import ChuckInline, ElementCapabilityAdmin
+from machinery.models import RectangularWorkTable, Pallet, CircularWorkTable, TSlot
 
 
-class TSlotGenericInline(GenericStackedInline):
+class TSlotInline(GenericStackedInline):
     model = TSlot
     extra = 0
     max_num = 1
 
 
-class WorkTable(admin.ModelAdmin):
+class WorkTable(ElementCapabilityAdmin):
     inlines = [
-        TSlotGenericInline,
+        TSlotInline,
         ChuckInline
     ]
 
