@@ -9,3 +9,4 @@ from others import *
 from rotary_axis import *
 from spindle import *
 from tool_handling_unit import *
+from machine_tool_element import *
