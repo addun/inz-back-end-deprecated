@@ -1,4 +1,5 @@
 from element_capability import *
+from environmental_evaluation import *
 from installation import *
 from machine_tool_axis import *
 from machine_tool_requirement import *
