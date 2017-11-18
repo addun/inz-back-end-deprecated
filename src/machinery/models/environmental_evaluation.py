@@ -5,7 +5,7 @@ from machinery.models.machine_tool_specification import MachineToolSpecification
 
 
 class EnvironmentalEvaluation(models.Model):
-    machine_tool_specification = models.OneToOneField(MachineToolSpecification, primary_key=True)
+    machine_tool_specification = models.OneToOneField(MachineToolSpecification)
     evaluation_name = schemas.SupportResource.label()
     power_in_idling = schemas.Measure.power(null=True, blank=True)
     time_for_warming_up = schemas.Measure.time(null=True, blank=True)

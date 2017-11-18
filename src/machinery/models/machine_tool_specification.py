@@ -10,11 +10,11 @@ class MachineToolSpecification(MachineTool):
 
 class MachineKinematicAssociation(models.Model):
     kinematics = schemas.KinematicStructure.mechanism()
-    machine_kinematic_association = models.OneToOneField(MachineToolSpecification, primary_key=True)
+    machine_kinematic_association = models.OneToOneField(MachineToolSpecification)
 
 
 class Locator(models.Model):
-    machine_tool_specification = models.OneToOneField(MachineToolSpecification, primary_key=True)
+    machine_tool_specification = models.OneToOneField(MachineToolSpecification)
     business_unit = schemas.SupportResource.label()
     plant_location = schemas.SupportResource.label()
     building = schemas.SupportResource.label()

@@ -8,9 +8,7 @@ from machinery.models import MachineToolSpecification
 
 
 class NcController(models.Model):
-    machine_tool_specification = models.OneToOneField(MachineToolSpecification,
-                                                      on_delete=models.CASCADE,
-                                                      primary_key=True)
+    machine_tool_specification = models.OneToOneField(MachineToolSpecification, on_delete=models.CASCADE)
     controller_model = schemas.SupportResource.label()
     controller_manufacturer = schemas.SupportResource.label()
     units = schemas.Enumerations.units()

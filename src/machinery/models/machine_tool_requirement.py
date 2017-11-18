@@ -27,13 +27,13 @@ class SpindleCapability(models.Model):
 
 
 class AxisCapability(models.Model):
-    machine_tool_requirement = models.OneToOneField(MachineToolRequirement, primary_key=True, on_delete=models.CASCADE)
+    machine_tool_requirement = models.OneToOneField(MachineToolRequirement, on_delete=models.CASCADE)
     number_of_axes = schemas.Measure.count()
     number_of_simultaneous_axes = schemas.Measure.count()
 
 
 class PositioningCapability(models.Model):
-    machine_tool_requirement = models.OneToOneField(MachineToolRequirement, primary_key=True, on_delete=models.CASCADE)
+    machine_tool_requirement = models.OneToOneField(MachineToolRequirement, on_delete=models.CASCADE)
     maximum_displacement_error_of_linear_axis = schemas.Measure.length()
     maximum_repeatability_error_of_linear_axis = schemas.Measure.length()
 

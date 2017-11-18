@@ -5,21 +5,21 @@ from machinery.models.machine_tool_specification import MachineToolSpecification
 
 
 class Installation(models.Model):
-    machine_tool_specification = models.OneToOneField(MachineToolSpecification, on_delete=models.CASCADE, primary_key=True)
+    machine_tool_specification = models.OneToOneField(MachineToolSpecification, on_delete=models.CASCADE)
     weight = schemas.Measure.mass()
     air_pressure_requirement = schemas.Measure.pressure(null=True, blank=True)
     water_flow_rate = schemas.Base.real(null=True, blank=True)
 
 
 class MachineSize(models.Model):
-    installation = models.OneToOneField(Installation, on_delete=models.CASCADE, primary_key=True)
+    installation = models.OneToOneField(Installation, on_delete=models.CASCADE)
     machine_length = schemas.Measure.length()
     machine_width = schemas.Measure.length()
     machine_height = schemas.Measure.length()
 
 
 class Electrical(models.Model):
-    installation = models.OneToOneField(Installation, on_delete=models.CASCADE, primary_key=True)
+    installation = models.OneToOneField(Installation, on_delete=models.CASCADE)
     electric_phase = schemas.Base.string()
     electric_power = schemas.Measure.power()
     electrical_current = schemas.Measure.electric_current()
@@ -29,7 +29,7 @@ class Electrical(models.Model):
 
 
 class Hydraulics(models.Model):
-    installation = models.OneToOneField(Installation, on_delete=models.CASCADE, primary_key=True)
+    installation = models.OneToOneField(Installation, on_delete=models.CASCADE)
     type_of_hydraulic_oil = schemas.SupportResource.label()
     pump_outlet_pressure = schemas.Measure.pressure()
     capacity_of_hydraulics_tank = schemas.Measure.volume()
