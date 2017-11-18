@@ -10,3 +10,4 @@ from rotary_axis import *
 from spindle import *
 from tool_handling_unit import *
 from work_table import *
+from sensor import *
