@@ -13,3 +13,4 @@ class DeviceInline(GenericStackedInline):
 class MeasuringCapabilityInline(GenericTabularInline):
     model = MeasuringCapability
     extra = 0
+    max_num = 1

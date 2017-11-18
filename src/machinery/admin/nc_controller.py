@@ -32,6 +32,10 @@ class RapidTraverseOverrideStackedInline(admin.StackedInline):
     extra = 1
 
 
+class NcControllerInline(admin.StackedInline):
+    model = NcController
+
+
 @admin.register(NcController)
 class NcControllerAdmin(admin.ModelAdmin):
     inlines = [
