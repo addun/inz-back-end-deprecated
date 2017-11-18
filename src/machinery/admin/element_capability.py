@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
 
 from machinery.models import Chuck, Collet, BarFeeder, Coolant, Tailstock
+from machinery.utils import experimental
 
 
 class ElementCapabilityAdmin(admin.ModelAdmin):
@@ -14,21 +15,27 @@ class ChuckInline(GenericStackedInline):
     extra = 0
 
 
-@admin.register(Collet)
-class ColletAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(BarFeeder)
-class BarFeederAdmin(admin.ModelAdmin):
+@admin.register(Tailstock)
+class TailstockAdmin(ElementCapabilityAdmin):
     pass
 
 
 @admin.register(Coolant)
-class CoolantAdmin(admin.ModelAdmin):
+class CoolantAdmin(ElementCapabilityAdmin):
     pass
 
 
-@admin.register(Tailstock)
-class TailstockAdmin(admin.ModelAdmin):
+@admin.register(BarFeeder)
+class BarFeederAdmin(ElementCapabilityAdmin):
+    pass
+
+
+@admin.register(Collet)
+class ColletAdmin(ElementCapabilityAdmin):
+    pass
+
+
+@experimental
+@admin.register(Chuck)
+class ChuckAdmin(ElementCapabilityAdmin):
     pass

@@ -20,13 +20,6 @@ class Tailstock(ElementCapability):
     maximum_workpiece_weight_of_quill = schemas.Measure.mass()
 
 
-class Coolant(ElementCapability):
-    coolant_type = schemas.Enumerations.coolant_type()
-    means_of_delivery = schemas.Enumerations.means_of_coolant_delivery()
-    capacity_of_coolant_tank = schemas.Measure.volume(null=True, blank=True)
-    coolant_weight = schemas.Measure.mass(null=True, blank=True)
-
-
 class BarFeeder(ElementCapability):
     minimum_stock_diameter = schemas.Measure.length()
     maximum_stock_diameter = schemas.Measure.length()
@@ -47,3 +40,10 @@ class Chuck(ElementCapability):
     minimum_part_diameter = schemas.Measure.length()
     maximum_part_diameter = schemas.Measure.length()
     number_of_jaws = schemas.Measure.count()
+
+
+class Coolant(ElementCapability):
+    coolant_type = schemas.Enumerations.coolant_type()
+    means_of_delivery = schemas.Enumerations.means_of_coolant_delivery(null=True, blank=True)
+    capacity_of_coolant_tank = schemas.Measure.volume(null=True, blank=True)
+    coolant_weight = schemas.Measure.mass(null=True, blank=True)
