@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from machinery.admin.machining_capability import MachiningCapabilityInline
 from machinery.models import *
 
 
@@ -18,7 +19,7 @@ class SpindleCapabilityInline(admin.TabularInline):
     extra = 1
 
 
-class AxisCapabilityInline(admin.StackedInline):
+class AxisCapabilityInline(admin.TabularInline):
     model = AxisCapability
     extra = 1
 
@@ -29,7 +30,7 @@ class PositioningCapabilityInline(admin.TabularInline):
     show_change_link = True
 
 
-class RangeOfMotionStackedInline(admin.TabularInline):
+class RangeOfMotionInline(admin.TabularInline):
     model = RangeOfMotion
     extra = 0
 
@@ -37,7 +38,7 @@ class RangeOfMotionStackedInline(admin.TabularInline):
 @admin.register(PositioningCapability)
 class RangeOfMotionAdmin(admin.ModelAdmin):
     inlines = [
-        RangeOfMotionStackedInline
+        RangeOfMotionInline
     ]
 
 
@@ -49,4 +50,5 @@ class MachineToolRequirementAdmin(admin.ModelAdmin):
         SpindleCapabilityInline,
         AxisCapabilityInline,
         PositioningCapabilityInline,
+        MachiningCapabilityInline
     ]
