@@ -416,28 +416,3 @@ class Enumerations(models.Model):
 
     class Meta:
         abstract = True
-
-
-class Other(models.Model):
-    @staticmethod
-    @deprecated
-    def rot_acceleration_measure(**kwargs):
-        return models.CharField(max_length=15, **kwargs)
-
-    @staticmethod
-    @deprecated
-    def rot_jerk_measure(**kwargs):
-        return models.CharField(max_length=15, **kwargs)
-
-    @staticmethod
-    @deprecated
-    def jerk_measure(**kwargs):
-        return models.CharField(max_length=15, **kwargs)
-
-    @staticmethod
-    @deprecated
-    def torque_measure(**kwargs):
-        return models.CharField(max_length=15, **kwargs)
-
-    class Meta:
-        abstract = True
