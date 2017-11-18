@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.admin.options import StackedInline
 
 from machinery.models import EnvironmentalEvaluation, EmissionProperty, StandardMachiningProcess
 
@@ -26,3 +27,11 @@ class EnvironmentalEvaluationAdmin(admin.ModelAdmin):
     inlines = [
         StandardMachiningProcessInline
     ]
+
+
+class EnvironmentalEvaluationInline(StackedInline):
+    model = EnvironmentalEvaluation
+    show_change_link = True
+    max_num = 1
+    min_num = 1
+    extra = 1

@@ -4,13 +4,13 @@ from machinery import schemas
 from machinery.models.others import MachineTool
 
 
+class MachineToolSpecification(MachineTool):
+    machine_class = schemas.Enumerations.machine_class()
+
+
 class MachineKinematicAssociation(models.Model):
     kinematics = schemas.KinematicStructure.mechanism()
-
-
-class MachineToolSpecification(MachineTool):
-    machine_kinematic_association = models.OneToOneField(MachineKinematicAssociation, primary_key=True)
-    machine_class = schemas.Enumerations.machine_class()
+    machine_kinematic_association = models.OneToOneField(MachineToolSpecification, primary_key=True)
 
 
 class Locator(models.Model):

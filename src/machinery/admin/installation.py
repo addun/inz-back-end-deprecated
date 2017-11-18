@@ -26,3 +26,8 @@ class InstallationAdmin(admin.ModelAdmin):
         ElectricalStackedInline,
         HydraulicsStackedInline,
     ]
+
+
+class InstallationInline(admin.StackedInline):
+    model = Installation
+    show_change_link = True
