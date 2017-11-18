@@ -4,9 +4,13 @@ from __future__ import unicode_literals
 from django.db import models
 
 from machinery import schemas
+from machinery.models import MachineToolSpecification
 
 
 class NcController(models.Model):
+    machine_tool_specification = models.OneToOneField(MachineToolSpecification,
+                                                      on_delete=models.CASCADE,
+                                                      primary_key=True)
     controller_model = schemas.SupportResource.label()
     controller_manufacturer = schemas.SupportResource.label()
     units = schemas.Enumerations.units()

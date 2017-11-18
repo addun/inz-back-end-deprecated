@@ -1,10 +1,11 @@
 from django.db import models
 
 from machinery import schemas
+from machinery.models.machine_tool_specification import MachineToolSpecification
 
 
 class MachineToolElement(models.Model):
-    # ToDo: add foreign key to machine_tool_specification
+    machine_tool_specification = models.ForeignKey(MachineToolSpecification, on_delete=models.CASCADE)
     name = schemas.SupportResource.label()
     description = schemas.SupportResource.text(null=True, blank=True)
     weight = schemas.Measure.mass(null=True, blank=True)

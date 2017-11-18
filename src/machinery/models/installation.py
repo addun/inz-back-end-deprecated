@@ -1,9 +1,11 @@
 from django.db import models
 
 from machinery import schemas
+from machinery.models.machine_tool_specification import MachineToolSpecification
 
 
 class Installation(models.Model):
+    machine_tool_specification = models.OneToOneField(MachineToolSpecification, on_delete=models.CASCADE, primary_key=True)
     weight = schemas.Measure.mass()
     air_pressure_requirement = schemas.Measure.pressure(null=True, blank=True)
     water_flow_rate = schemas.Base.real(null=True, blank=True)
