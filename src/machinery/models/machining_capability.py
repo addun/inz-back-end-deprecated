@@ -16,7 +16,7 @@ class MachiningCapability(models.Model):
 
 
 class MachiningSize(models.Model):
-    machining_capability = models.OneToOneField(MachiningCapability)
+    machining_capability = models.OneToOneField(MachiningCapability, on_delete=models.CASCADE)
     description = schemas.SupportResource.text(null=True, blank=True)
     x = schemas.Measure.length()
     y = schemas.Measure.length()
