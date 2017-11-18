@@ -329,6 +329,26 @@ class Enumerations(models.Model):
         return models.CharField(max_length=25, choices=TOOL_COMPENSATION, **kwargs)
 
     @staticmethod
+    def probe_type(**kwargs):
+        PROBE_TYPE = (
+            ('NULLING', 'nulling'),
+            ('PROPORTIONAL', 'proportional'),
+            ('SWITCHING', 'switching'),
+        )
+
+        return models.CharField(max_length=25, choices=PROBE_TYPE, **kwargs)
+
+    @staticmethod
+    def sensor_dimensionality(**kwargs):
+        SENSOR_DIMENSIONALITY = (
+            ('ONE_D', 'one d'),
+            ('TWO_D', 'two d'),
+            ('THREE_D', 'three d'),
+        )
+
+        return models.CharField(max_length=25, choices=SENSOR_DIMENSIONALITY, **kwargs)
+
+    @staticmethod
     def machining_capability_profile(**kwargs):
         MACHINING_CAPABILITY_PROFILE = (
             ('BORING_CAPABILITY', 'boring capability'),
