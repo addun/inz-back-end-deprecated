@@ -1,4 +1,23 @@
+import functools
+import warnings
+
 from django.db import models
+
+
+def deprecated(func):
+    """This is a decorator which can be used to mark functions
+    as deprecated. It will result in a warning being emmitted
+    when the function is used."""
+
+    @functools.wraps(func)
+    def new_func(*args, **kwargs):
+        warnings.simplefilter('always', DeprecationWarning)  # turn off filter
+        warnings.warn("Call to deprecated function {}.".format(func.__name__), category=DeprecationWarning,
+                      stacklevel=2)
+        warnings.simplefilter('default', DeprecationWarning)  # reset filter
+        return func(*args, **kwargs)
+
+    return new_func
 
 
 class Select(models.Model):
@@ -212,6 +231,22 @@ class Measure(models.Model):
     def volume(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
+    @staticmethod
+    def rot_acceleration(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
+
+    @staticmethod
+    def rot_jerk(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
+
+    @staticmethod
+    def jerk(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
+
+    @staticmethod
+    def torque(**kwargs):
+        return models.CharField(max_length=15, **kwargs)
+
     class Meta:
         abstract = True
 
@@ -402,18 +437,22 @@ class Enumerations(models.Model):
 
 class Other(models.Model):
     @staticmethod
+    @deprecated
     def rot_acceleration_measure(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
+    @deprecated
     def rot_jerk_measure(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
+    @deprecated
     def jerk_measure(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
     @staticmethod
+    @deprecated
     def torque_measure(**kwargs):
         return models.CharField(max_length=15, **kwargs)
 
