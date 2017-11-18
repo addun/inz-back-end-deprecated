@@ -1,7 +1,5 @@
 from django.db import models
 
-from machinery.utils import deprecated
-
 
 class Select(models.Model):
     @staticmethod
@@ -216,19 +214,19 @@ class Measure(models.Model):
 
     @staticmethod
     def rot_acceleration(**kwargs):
-        return models.CharField(max_length=15, **kwargs)
+        return Base.real(**kwargs)
 
     @staticmethod
     def rot_jerk(**kwargs):
-        return models.CharField(max_length=15, **kwargs)
+        return Base.real(**kwargs)
 
     @staticmethod
     def jerk(**kwargs):
-        return models.CharField(max_length=15, **kwargs)
+        return Base.real(**kwargs)
 
     @staticmethod
     def torque(**kwargs):
-        return models.CharField(max_length=15, **kwargs)
+        return Base.real(**kwargs)
 
     class Meta:
         abstract = True
