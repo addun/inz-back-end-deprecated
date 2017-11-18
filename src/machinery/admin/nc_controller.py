@@ -6,28 +6,28 @@ from machinery.models.nc_controller import ToolCompensationFunction, NcControlle
     CuttingFeedRateOverride, CycleFunction, InterpolationFunction
 
 
-# Register your models here.
-class ToolCompensationFunctionStackedInline(admin.StackedInline):
+class ToolCompensationFunctionInline(admin.StackedInline):
     model = ToolCompensationFunction
     extra = 1
 
 
-class CycleFunctionStackedInline(admin.StackedInline):
+class CycleFunctionInline(admin.StackedInline):
     model = CycleFunction
     extra = 1
 
 
-class InterpolationFunctionStackedInline(admin.StackedInline):
+class InterpolationFunctionInline(admin.StackedInline):
     model = InterpolationFunction
-    extra = 1
+    min_num = 1
+    extra = 0
 
 
-class CuttingFeedRateOverrideStackedInline(admin.StackedInline):
+class CuttingFeedRateOverrideInline(admin.StackedInline):
     model = CuttingFeedRateOverride
     extra = 1
 
 
-class RapidTraverseOverrideStackedInline(admin.StackedInline):
+class RapidTraverseOverrideInline(admin.StackedInline):
     model = RapidTraverseOverride
     extra = 1
 
@@ -39,9 +39,9 @@ class NcControllerInline(admin.StackedInline):
 @admin.register(NcController)
 class NcControllerAdmin(admin.ModelAdmin):
     inlines = [
-        RapidTraverseOverrideStackedInline,
-        CuttingFeedRateOverrideStackedInline,
-        InterpolationFunctionStackedInline,
-        CycleFunctionStackedInline,
-        ToolCompensationFunctionStackedInline,
+        RapidTraverseOverrideInline,
+        CuttingFeedRateOverrideInline,
+        InterpolationFunctionInline,
+        CycleFunctionInline,
+        ToolCompensationFunctionInline,
     ]

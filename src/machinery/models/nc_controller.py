@@ -23,14 +23,9 @@ class NcController(models.Model):
     look_ahead = schemas.Base.integer(null=True, blank=True)
     adaptive_control = schemas.SupportResource.text(blank=True, null=True)
     miscellaneous_controller_functions = schemas.SupportResource.text(blank=True, null=True)
-    program_memory_size = schemas.Base.integer(blank=True, null=True)
+    program_memory_size = schemas.Base.real(blank=True, null=True)
     time_sampling = schemas.Measure.time(blank=True, null=True)
     clock_frequency = schemas.Measure.count(blank=True, null=True)
-
-
-class ToolCompensationFunction(models.Model):
-    nc_controller = models.ForeignKey(NcController, on_delete=models.CASCADE)
-    tool_compensation_function = schemas.Measure.count()
 
 
 class CycleFunction(models.Model):
@@ -40,7 +35,7 @@ class CycleFunction(models.Model):
 
 class InterpolationFunction(models.Model):
     nc_controller = models.ForeignKey(NcController, on_delete=models.CASCADE)
-    interpolation_function = schemas.SupportResource.text()
+    interpolation_function = schemas.Enumerations.interpolation()
 
 
 class CuttingFeedRateOverride(models.Model):
@@ -51,3 +46,8 @@ class CuttingFeedRateOverride(models.Model):
 class RapidTraverseOverride(models.Model):
     nc_controller = models.ForeignKey(NcController, on_delete=models.CASCADE)
     rapid_traverse_override = schemas.Measure.ratio()
+
+
+class ToolCompensationFunction(models.Model):
+    nc_controller = models.ForeignKey(NcController, on_delete=models.CASCADE)
+    tool_compensation_function = schemas.Enumerations.tool_compensation()

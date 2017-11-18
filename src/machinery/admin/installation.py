@@ -4,7 +4,6 @@ from django.contrib import admin
 from machinery.models import Installation, MachineSize, Electrical, Hydraulics
 
 
-# Register your models here.
 class MachineSizeStackedInline(admin.StackedInline):
     model = MachineSize
     extra = 1
