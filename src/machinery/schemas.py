@@ -329,6 +329,19 @@ class Enumerations(models.Model):
         return models.CharField(max_length=25, choices=TOOL_COMPENSATION, **kwargs)
 
     @staticmethod
+    def machine_class(**kwargs):
+        MACHINE_CLASS = (
+            ('DRILLING_MACHINE', 'drilling machine'),
+            ('GUNDRILL_MACHINE', 'gundrill machine'),
+            ('MACHINING_CENTRE', 'machining centre'),
+            ('MILLING_MACHINE', 'milling machine'),
+            ('MULTI_TASKING_MACHINE', 'multi tasking machine'),
+            ('TURNING_MACHINE', 'turning machine')
+        )
+
+        return models.CharField(max_length=25, choices=MACHINE_CLASS, **kwargs)
+
+    @staticmethod
     def probe_type(**kwargs):
         PROBE_TYPE = (
             ('NULLING', 'nulling'),

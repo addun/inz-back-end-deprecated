@@ -11,3 +11,4 @@ from rotary_axis import *
 from sensor import *
 from spindle import *
 from tool_handling_unit import *
+from machine_tool_specification import *
