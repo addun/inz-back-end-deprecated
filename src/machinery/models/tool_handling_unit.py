@@ -24,7 +24,7 @@ class ToolMagazine(ToolHandlingUnit):
     diameter_empty = schemas.Measure.length()
     tool_length = schemas.Measure.length()
     tool_weight = schemas.Measure.mass()
-    storage_configuration = schemas.Enumerations.tool_compensation()
+    storage_configuration = schemas.Enumerations.tool_storage_configuration(null=True, blank=True)
 
 
 class Turret(ToolHandlingUnit):
@@ -35,13 +35,13 @@ class Turret(ToolHandlingUnit):
 
 
 class ToolAssembly(models.Model):
-    tool_number = schemas.SupportResource.identifier()
-    tool_type = schemas.SupportResource.label()
-    tool_size = schemas.Base.string()
-
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
+
+    tool_number = schemas.SupportResource.identifier()
+    tool_type = schemas.SupportResource.label()
+    tool_size = schemas.Base.string(null=True, blank=True)
 
 
 class SpindleName(models.Model):

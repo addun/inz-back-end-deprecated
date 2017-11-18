@@ -4,6 +4,10 @@ from django.contrib.contenttypes.admin import GenericStackedInline
 from machinery.models import Chuck, Collet, BarFeeder, Coolant, Tailstock
 
 
+class ElementCapabilityAdmin(admin.ModelAdmin):
+    pass
+
+
 class ChuckInline(GenericStackedInline):
     model = Chuck
     max_num = 1
