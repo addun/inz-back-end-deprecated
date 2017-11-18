@@ -3,9 +3,11 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 from machinery import schemas
+from machinery.models.machine_tool_element import MachineToolElement
 
 
 class ElementCapability(models.Model):
+    machine_tool_element = models.ForeignKey(MachineToolElement, on_delete=models.CASCADE)
     description = schemas.SupportResource.text()
 
     class Meta:
