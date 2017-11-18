@@ -1,17 +1,9 @@
 from django.contrib import admin
 
 from machinery.admin.machining_capability import MachiningCapabilityInline
-from machinery.models import *
-
-
-class ProjectPhysicalResourceAssociationInline(admin.StackedInline):
-    model = ProjectPhysicalResourceAssociation
-    extra = 1
-
-
-class WorkplanPhysicalResourceAssociationInline(admin.StackedInline):
-    model = WorkplanPhysicalResourceAssociation
-    extra = 1
+from machinery.admin.others import MeasuringCapabilityInline
+from machinery.models import SpindleCapability, AxisCapability, PositioningCapability, MachineToolRequirement, \
+    RangeOfMotion, WorkplanPhysicalResourceAssociation, ProjectPhysicalResourceAssociation
 
 
 class SpindleCapabilityInline(admin.TabularInline):
@@ -30,25 +22,35 @@ class PositioningCapabilityInline(admin.TabularInline):
     show_change_link = True
 
 
+@admin.register(MachineToolRequirement)
+class MachineToolRequirementAdmin(admin.ModelAdmin):
+    inlines = [
+        MachiningCapabilityInline,
+        SpindleCapabilityInline,
+        PositioningCapabilityInline,
+        AxisCapabilityInline,
+        MeasuringCapabilityInline
+    ]
+
+
 class RangeOfMotionInline(admin.TabularInline):
     model = RangeOfMotion
     extra = 0
+    min_num = 1
 
 
 @admin.register(PositioningCapability)
-class RangeOfMotionAdmin(admin.ModelAdmin):
+class PositioningCapabilityAdmin(admin.ModelAdmin):
     inlines = [
         RangeOfMotionInline
     ]
 
 
-@admin.register(MachineToolRequirement)
-class MachineToolRequirementAdmin(admin.ModelAdmin):
-    inlines = [
-        ProjectPhysicalResourceAssociationInline,
-        WorkplanPhysicalResourceAssociationInline,
-        SpindleCapabilityInline,
-        AxisCapabilityInline,
-        PositioningCapabilityInline,
-        MachiningCapabilityInline
-    ]
+@admin.register(WorkplanPhysicalResourceAssociation)
+class WorkplanPhysicalResourceAssociation(admin.ModelAdmin):
+    pass
+
+
+@admin.register(ProjectPhysicalResourceAssociation)
+class ProjectPhysicalResourceAssociationAdmin(admin.ModelAdmin):
+    pass

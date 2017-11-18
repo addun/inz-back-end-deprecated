@@ -26,16 +26,16 @@ class SpindleCapability(models.Model):
     maximum_drive_speed = schemas.Measure.count()
 
 
-class AxisCapability(models.Model):
-    machine_tool_requirement = models.OneToOneField(MachineToolRequirement, on_delete=models.CASCADE)
-    number_of_axes = schemas.Measure.count()
-    number_of_simultaneous_axes = schemas.Measure.count()
-
-
 class PositioningCapability(models.Model):
     machine_tool_requirement = models.OneToOneField(MachineToolRequirement, on_delete=models.CASCADE)
     maximum_displacement_error_of_linear_axis = schemas.Measure.length()
     maximum_repeatability_error_of_linear_axis = schemas.Measure.length()
+
+
+class AxisCapability(models.Model):
+    machine_tool_requirement = models.OneToOneField(MachineToolRequirement, on_delete=models.CASCADE)
+    number_of_axes = schemas.Measure.count()
+    number_of_simultaneous_axes = schemas.Measure.count()
 
 
 class RangeOfMotion(models.Model):
