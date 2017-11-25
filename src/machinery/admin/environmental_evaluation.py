@@ -32,3 +32,4 @@ class EnvironmentalEvaluationAdmin(admin.ModelAdmin):
 class EnvironmentalEvaluationInline(StackedInline):
     model = EnvironmentalEvaluation
     show_change_link = True
+    extra = 0

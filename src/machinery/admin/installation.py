@@ -16,7 +16,7 @@ class ElectricalStackedInline(admin.StackedInline):
 
 class HydraulicsStackedInline(admin.StackedInline):
     model = Hydraulics
-    extra = 1
+    extra = 0
 
 
 @admin.register(Installation)

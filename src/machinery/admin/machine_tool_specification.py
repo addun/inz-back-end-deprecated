@@ -12,6 +12,7 @@ from machinery.models.machine_tool_specification import MachineKinematicAssociat
 
 class LocatorInline(admin.StackedInline):
     model = Locator
+    extra = 0
 
 
 @admin.register(MachineToolSpecification)

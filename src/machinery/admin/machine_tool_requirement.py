@@ -8,17 +8,17 @@ from machinery.models import SpindleCapability, AxisCapability, PositioningCapab
 
 class SpindleCapabilityInline(admin.TabularInline):
     model = SpindleCapability
-    extra = 1
+    extra = 0
 
 
 class AxisCapabilityInline(admin.TabularInline):
     model = AxisCapability
-    extra = 1
+    extra = 0
 
 
 class PositioningCapabilityInline(admin.TabularInline):
     model = PositioningCapability
-    extra = 1
+    extra = 0
     show_change_link = True
 
 
