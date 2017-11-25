@@ -7,6 +7,7 @@ from machinery.models.machining_capability import MachiningSize
 
 class MachineSizeInline(admin.TabularInline):
     model = MachiningSize
+    extra = 0
 
 
 @admin.register(MachiningCapability)
