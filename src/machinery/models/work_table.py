@@ -1,31 +1,25 @@
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 from machinery import schemas
 from machinery.models.element_capability import ElementCapability
 
 
-class WorkTable(ElementCapability):
+class TSlot(models.Model):
+    number_of_t_slots = schemas.Measure.count(null=True, blank=True)
+    t_slots_size = schemas.Measure.length(null=True, blank=True)
+    distance_between_t_slot_centers = schemas.Measure.length(null=True, blank=True)
+
+    class Meta:
+        abstract = True
+
+
+class WorkTable(ElementCapability, TSlot):
     rotatable = schemas.Base.boolean()
     workpiece_weight = schemas.Measure.mass(null=True, blank=True)
     fixture_style = schemas.Enumerations.fixture_style(null=True, blank=True)
 
     class Meta:
         abstract = True
-
-
-class TSlot(models.Model):
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey('content_type', 'object_id')
-
-    number_of_t_slots = schemas.Measure.count()
-    t_slots_size = schemas.Measure.length()
-    distance_between_t_slot_centers = schemas.Measure.length()
-
-    class Meta:
-        unique_together = ('content_type', 'object_id')
 
 
 class CircularWorkTable(WorkTable):
