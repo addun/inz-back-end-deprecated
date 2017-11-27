@@ -4,17 +4,25 @@ from machinery import schemas
 from machinery.models.others import MachineTool
 
 
-class MachineToolRequirement(MachineTool):
-    number_of_tools_in_tool_magazine = schemas.Measure.count(null=True, blank=True)
-    automatically_pallet_changeable = schemas.Base.boolean()
-
-    # AxisCapability
+class AxisCapability(models.Model):
     number_of_axes = schemas.Measure.count()
     number_of_simultaneous_axes = schemas.Measure.count()
 
-    # PositioningCapability
+    class Meta:
+        abstract = True
+
+
+class PositioningCapability(models.Model):
     maximum_displacement_error_of_linear_axis = schemas.Measure.length()
     maximum_repeatability_error_of_linear_axis = schemas.Measure.length()
+
+    class Meta:
+        abstract = True
+
+
+class MachineToolRequirement(MachineTool, AxisCapability, PositioningCapability):
+    number_of_tools_in_tool_magazine = schemas.Measure.count(null=True, blank=True)
+    automatically_pallet_changeable = schemas.Base.boolean()
 
 
 class ProjectPhysicalResourceAssociation(models.Model):
