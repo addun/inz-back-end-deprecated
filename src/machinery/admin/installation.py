@@ -1,31 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from machinery.models import Installation, MachineSize, Electrical, Hydraulics
-
-
-class MachineSizeStackedInline(admin.StackedInline):
-    model = MachineSize
-    extra = 1
-
-
-class ElectricalStackedInline(admin.StackedInline):
-    model = Electrical
-    extra = 1
-
-
-class HydraulicsStackedInline(admin.StackedInline):
-    model = Hydraulics
-    extra = 0
+from machinery.models import Installation
 
 
 @admin.register(Installation)
 class InstallationAdmin(admin.ModelAdmin):
-    inlines = [
-        MachineSizeStackedInline,
-        ElectricalStackedInline,
-        HydraulicsStackedInline,
-    ]
+    pass
 
 
 class InstallationInline(admin.StackedInline):

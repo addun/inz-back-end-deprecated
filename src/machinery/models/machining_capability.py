@@ -14,10 +14,7 @@ class MachiningCapability(models.Model):
     machining_accuracy = schemas.SupportResource.text(null=True, blank=True)
     description = schemas.SupportResource.text(null=True, blank=True)
 
-
-class MachiningSize(models.Model):
-    machining_capability = models.OneToOneField(MachiningCapability, on_delete=models.CASCADE)
-    description = schemas.SupportResource.text(null=True, blank=True)
-    x = schemas.Measure.length()
-    y = schemas.Measure.length()
-    z = schemas.Measure.length()
+    machining_size_description = schemas.SupportResource.text(null=True, blank=True)
+    machining_size_x = schemas.Measure.length()
+    machining_size_y = schemas.Measure.length()
+    machining_size_z = schemas.Measure.length()

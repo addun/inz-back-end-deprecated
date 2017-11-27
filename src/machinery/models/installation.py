@@ -10,16 +10,12 @@ class Installation(models.Model):
     air_pressure_requirement = schemas.Measure.pressure(null=True, blank=True)
     water_flow_rate = schemas.Base.real(null=True, blank=True)
 
-
-class MachineSize(models.Model):
-    installation = models.OneToOneField(Installation, on_delete=models.CASCADE)
+    # MachineSize
     machine_length = schemas.Measure.length()
     machine_width = schemas.Measure.length()
     machine_height = schemas.Measure.length()
 
-
-class Electrical(models.Model):
-    installation = models.OneToOneField(Installation, on_delete=models.CASCADE)
+    # Electrical
     electric_phase = schemas.Base.string()
     electric_power = schemas.Measure.power()
     electrical_current = schemas.Measure.electric_current()
@@ -27,9 +23,7 @@ class Electrical(models.Model):
     electrical_grounding = schemas.Base.string()
     electrical_voltage = schemas.Base.real()
 
-
-class Hydraulics(models.Model):
-    installation = models.OneToOneField(Installation, on_delete=models.CASCADE)
+    # Hydraulics
     type_of_hydraulic_oil = schemas.SupportResource.label()
     pump_outlet_pressure = schemas.Measure.pressure()
     capacity_of_hydraulics_tank = schemas.Measure.volume()

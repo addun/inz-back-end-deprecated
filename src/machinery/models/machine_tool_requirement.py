@@ -8,6 +8,14 @@ class MachineToolRequirement(MachineTool):
     number_of_tools_in_tool_magazine = schemas.Measure.count(null=True, blank=True)
     automatically_pallet_changeable = schemas.Base.boolean()
 
+    # AxisCapability
+    number_of_axes = schemas.Measure.count()
+    number_of_simultaneous_axes = schemas.Measure.count()
+
+    # PositioningCapability
+    maximum_displacement_error_of_linear_axis = schemas.Measure.length()
+    maximum_repeatability_error_of_linear_axis = schemas.Measure.length()
+
 
 class ProjectPhysicalResourceAssociation(models.Model):
     machine_tool_requirement = models.ForeignKey(MachineToolRequirement, on_delete=models.CASCADE)
@@ -26,19 +34,7 @@ class SpindleCapability(models.Model):
     maximum_drive_speed = schemas.Measure.count()
 
 
-class PositioningCapability(models.Model):
-    machine_tool_requirement = models.OneToOneField(MachineToolRequirement, on_delete=models.CASCADE)
-    maximum_displacement_error_of_linear_axis = schemas.Measure.length()
-    maximum_repeatability_error_of_linear_axis = schemas.Measure.length()
-
-
-class AxisCapability(models.Model):
-    machine_tool_requirement = models.OneToOneField(MachineToolRequirement, on_delete=models.CASCADE)
-    number_of_axes = schemas.Measure.count()
-    number_of_simultaneous_axes = schemas.Measure.count()
-
-
 class RangeOfMotion(models.Model):
-    positioning_capability = models.ForeignKey(PositioningCapability, on_delete=models.CASCADE)
+    positioning_capability = models.ForeignKey(MachineToolRequirement, on_delete=models.CASCADE)
     axis_name = schemas.SupportResource.label()
     motion_range = schemas.Select.angle_or_length()
