@@ -7,6 +7,7 @@ from machinery.admin.machining_capability import MachiningCapabilityInline
 from machinery.admin.nc_controller import NcControllerInline
 from machinery.admin.others import MeasuringCapabilityInline, DeviceInline
 from machinery.models import MachineToolSpecification
+from machinery.models.machine_tool_specification import MachineKinematicAssociation
 
 
 @admin.register(MachineToolSpecification)
@@ -20,3 +21,8 @@ class MachineToolSpecificationAdmin(admin.ModelAdmin):
         EnvironmentalEvaluationInline,
         MachineToolElementInline
     ]
+
+
+@admin.register(MachineKinematicAssociation)
+class MachineKinematicAssociationAdmin(admin.ModelAdmin):
+    pass
