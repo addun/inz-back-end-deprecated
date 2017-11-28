@@ -5,16 +5,16 @@ from machinery.models.others import MachineTool
 
 
 class AxisCapability(models.Model):
-    number_of_axes = schemas.Measure.count()
-    number_of_simultaneous_axes = schemas.Measure.count()
+    number_of_axes = schemas.Measure.count(null=True, blank=True)
+    number_of_simultaneous_axes = schemas.Measure.count(null=True, blank=True)
 
     class Meta:
         abstract = True
 
 
 class PositioningCapability(models.Model):
-    maximum_displacement_error_of_linear_axis = schemas.Measure.length()
-    maximum_repeatability_error_of_linear_axis = schemas.Measure.length()
+    maximum_displacement_error_of_linear_axis = schemas.Measure.length(null=True, blank=True)
+    maximum_repeatability_error_of_linear_axis = schemas.Measure.length(null=True, blank=True)
 
     class Meta:
         abstract = True
