@@ -5,7 +5,7 @@ from machinery.admin.environmental_evaluation import EnvironmentalEvaluationInli
 from machinery.admin.machine_tool_element import MachineToolElementInline
 from machinery.admin.machining_capability import MachiningCapabilityInline
 from machinery.admin.nc_controller import NcControllerInline
-from machinery.admin.others import MeasuringCapabilityInline, DeviceInline
+from machinery.admin.others import  DeviceInline
 from machinery.models import MachineToolSpecification
 from machinery.models.machine_tool_specification import MachineKinematicAssociation
 
@@ -15,7 +15,6 @@ class MachineToolSpecificationAdmin(admin.ModelAdmin):
     inlines = [
         DeviceInline,
         MachiningCapabilityInline,
-        MeasuringCapabilityInline,
         InstallationInline,
         NcControllerInline,
         EnvironmentalEvaluationInline,

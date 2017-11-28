@@ -8,9 +8,3 @@ class DeviceInline(GenericStackedInline):
     extra = 1
     max_num = 1
     min_num = 1
-
-
-class MeasuringCapabilityInline(GenericTabularInline):
-    model = MeasuringCapability
-    extra = 0
-    max_num = 1

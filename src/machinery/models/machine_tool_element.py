@@ -1,10 +1,11 @@
 from django.db import models
 
 from machinery import schemas
+from machinery.models.others import MeasuringCapability
 from machinery.models.machine_tool_specification import MachineToolSpecification
 
 
-class MachineToolElement(models.Model):
+class MachineToolElement(MeasuringCapability):
     machine_tool_specification = models.ForeignKey(MachineToolSpecification, on_delete=models.CASCADE)
     name = schemas.SupportResource.label()
     description = schemas.SupportResource.text(null=True, blank=True)

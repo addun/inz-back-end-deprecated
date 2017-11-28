@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 from machinery.admin.machining_capability import MachiningCapabilityInline
-from machinery.admin.others import MeasuringCapabilityInline
 from machinery.models import SpindleCapability, MachineToolRequirement, \
     RangeOfMotion, WorkplanPhysicalResourceAssociation, ProjectPhysicalResourceAssociation
 
@@ -16,7 +15,6 @@ class MachineToolRequirementAdmin(admin.ModelAdmin):
     inlines = [
         MachiningCapabilityInline,
         SpindleCapabilityInline,
-        MeasuringCapabilityInline
     ]
 
 

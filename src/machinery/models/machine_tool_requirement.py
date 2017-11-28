@@ -1,7 +1,7 @@
 from django.db import models
 
 from machinery import schemas
-from machinery.models.others import MachineTool
+from machinery.models.others import MachineTool, MeasuringCapability
 
 
 class AxisCapability(models.Model):
@@ -20,7 +20,7 @@ class PositioningCapability(models.Model):
         abstract = True
 
 
-class MachineToolRequirement(MachineTool, AxisCapability, PositioningCapability):
+class MachineToolRequirement(MachineTool, AxisCapability, PositioningCapability, MeasuringCapability):
     number_of_tools_in_tool_magazine = schemas.Measure.count(null=True, blank=True)
     automatically_pallet_changeable = schemas.Base.boolean()
 

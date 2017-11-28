@@ -19,11 +19,11 @@ class Device(models.Model):
 
 
 class MeasuringCapability(models.Model):
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey('content_type', 'object_id')
-    measuring_accuracy = schemas.SupportResource.text()
-    description = schemas.SupportResource.text(null=True, blank=True)
+    measuring_accuracy = schemas.SupportResource.text(null=True, blank=True)
+    measuring_description = schemas.SupportResource.text(null=True, blank=True)
+
+    class Meta:
+        abstract = True
 
 
 class MachineTool(models.Model):
