@@ -20,6 +20,8 @@ class TurretSerializer(serializers.ModelSerializer):
         model = Turret
         fields = '__all__'
 
+# ToDo Create ToolAssembly serializer for GFK
+
 
 class SpindleNameSerializer(serializers.ModelSerializer):
     class Meta:

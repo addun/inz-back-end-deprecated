@@ -1,6 +1,7 @@
 from django.db import models
 
 from machinery import schemas
+from machinery.models import MachineToolElement
 from machinery.models.element_capability import ElementCapability
 
 
@@ -23,15 +24,20 @@ class WorkTable(ElementCapability, TSlot):
 
 
 class CircularWorkTable(WorkTable):
+    machine_tool_element = models.ForeignKey(MachineToolElement, on_delete=models.CASCADE,
+                                             related_name="circularworktable")
     table_diameter = schemas.Measure.length()
 
 
 class RectangularWorkTable(WorkTable):
+    machine_tool_element = models.ForeignKey(MachineToolElement, on_delete=models.CASCADE,
+                                             related_name="rectangularworktable")
     table_width = schemas.Measure.length()
     table_length = schemas.Measure.length()
 
 
 class Pallet(WorkTable):
+    machine_tool_element = models.ForeignKey(MachineToolElement, on_delete=models.CASCADE, related_name="pallet")
     random_access = schemas.Base.boolean()
     table_width = schemas.Measure.length()
     table_length = schemas.Measure.length()

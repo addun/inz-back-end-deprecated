@@ -15,18 +15,21 @@ class ElementCapability(models.Model):
 
 
 class Tailstock(ElementCapability):
+    machine_tool_element = models.ForeignKey(MachineToolElement, on_delete=models.CASCADE, related_name='tailstocks')
     spindle_name = schemas.SupportResource.label()
     taper = schemas.SupportResource.label()
     maximum_workpiece_weight_of_quill = schemas.Measure.mass()
 
 
 class BarFeeder(ElementCapability):
+    machine_tool_element = models.ForeignKey(MachineToolElement, on_delete=models.CASCADE, related_name='barfeeders')
     minimum_stock_diameter = schemas.Measure.length()
     maximum_stock_diameter = schemas.Measure.length()
     maximum_stock_length = schemas.Measure.length()
 
 
 class Collet(ElementCapability):
+    machine_tool_element = models.ForeignKey(MachineToolElement, on_delete=models.CASCADE, related_name='collets')
     collet_type = schemas.SupportResource.label()
     minimum_part_diameter = schemas.Measure.length()
     maximum_part_diameter = schemas.Measure.length()
@@ -43,6 +46,7 @@ class Chuck(ElementCapability):
 
 
 class Coolant(ElementCapability):
+    machine_tool_element = models.ForeignKey(MachineToolElement, on_delete=models.CASCADE, related_name='coolants')
     coolant_type = schemas.Enumerations.coolant_type()
     means_of_delivery = schemas.Enumerations.means_of_coolant_delivery(null=True, blank=True)
     capacity_of_coolant_tank = schemas.Measure.volume(null=True, blank=True)
