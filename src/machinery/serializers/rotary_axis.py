@@ -1,27 +1,21 @@
 from rest_framework import serializers
 
-from machinery.models import RotaryAxis, ContinuousRotary, LimitedSwing, Indexing
+from machinery.models import ContinuousRotary, LimitedSwing, Indexing
 
 
-class RotaryAxisSerializers(serializers.ModelSerializer):
-    class Meta:
-        model = RotaryAxis
-        fields = '__all__'
-
-
-class ContinuousRotarySerializers(serializers.ModelSerializer):
+class ContinuousRotarySerializer(serializers.ModelSerializer):
     class Meta:
         model = ContinuousRotary
         fields = '__all__'
 
 
-class IndexingSerializers(serializers.ModelSerializer):
+class IndexingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Indexing
         fields = '__all__'
 
 
-class LimitedSwingSerializers(serializers.ModelSerializer):
+class LimitedSwingSerializer(serializers.ModelSerializer):
     class Meta:
         model = LimitedSwing
         fields = '__all__'
