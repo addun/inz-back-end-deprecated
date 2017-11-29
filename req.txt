@@ -1,3 +1,4 @@
+camel-snake-kebab==0.3.2
 defusedxml==0.5.0
 Django==1.11.6
 django-cleanup==1.0.1
