@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from tree.models import Node
+from tree.models import Node, Tag
 
 
 class RecursiveField(serializers.Serializer):
@@ -25,4 +25,10 @@ class NodeTreeSerializer(serializers.ModelSerializer):
 class NodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Node
+        fields = '__all__'
+
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
         fields = '__all__'

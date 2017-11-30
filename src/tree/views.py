@@ -4,13 +4,18 @@ from __future__ import unicode_literals
 # Create your views here.
 from rest_framework import viewsets, generics
 
-from tree.models import Node
-from tree.serializers import NodeSerializer, NodeTreeSerializer
+from tree.models import Node, Tag
+from tree.serializers import NodeSerializer, NodeTreeSerializer, TagSerializer
 
 
 class NodeViewSet(viewsets.ModelViewSet):
     queryset = Node.objects.all()
     serializer_class = NodeSerializer
+
+
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
 
 
 class NodeTreeList(generics.ListAPIView):

@@ -10,3 +10,11 @@ class Node(models.Model):
 
     def __unicode__(self):
         return self.value
+
+
+class Tag(models.Model):
+    node = models.ForeignKey(Node, on_delete=models.CASCADE, related_name='node')
+    value = models.CharField(max_length=150)
+
+    def __unicode__(self):
+        return self.value
