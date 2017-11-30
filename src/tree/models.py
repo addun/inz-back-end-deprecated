@@ -4,8 +4,9 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-# Create your models here.
-
-class Tree(models.Model):
-    parent = models.OneToOneField('self', null=True, blank=True)
+class Node(models.Model):
+    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=150)
+
+    def __unicode__(self):
+        return self.name
