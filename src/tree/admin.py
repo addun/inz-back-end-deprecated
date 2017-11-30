@@ -10,6 +10,6 @@ from tree.models import Node
 @admin.register(Node)
 class NodeAdmin(admin.ModelAdmin):
     list_display = [
-        'name',
+        'value',
         'parent'
     ]

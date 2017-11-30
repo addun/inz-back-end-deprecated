@@ -3,21 +3,26 @@ from rest_framework import serializers
 from tree.models import Node
 
 
-class NodeSerializer(serializers.ModelSerializer):
-    hasChildren = serializers.SerializerMethodField()
+class RecursiveField(serializers.Serializer):
+    def to_representation(self, value):
+        serializer = self.parent.parent.__class__(value, context=self.context)
+        return serializer.data
+
+
+class NodeTreeSerializer(serializers.ModelSerializer):
+    children = RecursiveField(many=True)
 
     class Meta:
         model = Node
         fields = [
-            'parent',
-            'name',
             'id',
-            'hasChildren'
+            'parent',
+            'value',
+            'children'
         ]
 
-    def get_hasChildren(self, obj):
-        children = Node.objects.filter(parent=obj.id)
-        if children:
-            return True
-        else:
-            return False
+
+class NodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Node
+        fields = '__all__'
