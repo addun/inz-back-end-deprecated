@@ -6,3 +6,6 @@ from django.db import models
 
 # Create your models here.
 
+class Tree(models.Model):
+    parent = models.OneToOneField('self', null=True, blank=True)
+    name = models.CharField(max_length=150)
