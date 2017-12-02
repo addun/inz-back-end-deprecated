@@ -17,4 +17,7 @@ class NodeAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    pass
+    list_display = [
+        'value',
+        'node'
+    ]

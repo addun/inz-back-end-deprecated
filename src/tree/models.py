@@ -13,7 +13,7 @@ class Node(models.Model):
 
 
 class Tag(models.Model):
-    node = models.ForeignKey(Node, on_delete=models.CASCADE, related_name='node')
+    node = models.ForeignKey(Node, on_delete=models.CASCADE, related_name='tags')
     value = models.CharField(max_length=150)
 
     def __unicode__(self):

@@ -9,8 +9,15 @@ class RecursiveField(serializers.Serializer):
         return serializer.data
 
 
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = '__all__'
+
+
 class NodeTreeSerializer(serializers.ModelSerializer):
     children = RecursiveField(many=True)
+    tags = TagSerializer(many=True)
 
     class Meta:
         model = Node
@@ -18,17 +25,12 @@ class NodeTreeSerializer(serializers.ModelSerializer):
             'id',
             'parent',
             'value',
-            'children'
+            'tags',
+            'children',
         ]
 
 
 class NodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Node
-        fields = '__all__'
-
-
-class TagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
         fields = '__all__'
