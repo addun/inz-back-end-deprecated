@@ -3,14 +3,13 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework import viewsets
 
-from machinery.models import ToolSetting, PartProbe, ToolBreakage
+from machinery.models import MachineToolRequirement
 from machinery.serializers.utils import get_serializer
-from machinery.views.machine_tool_element import MachineToolElementViewSet
 
 
 class CustomRouter(routers.DefaultRouter):
     def register_by_model(self, model):
-        router_name = kebab_case(model.__name__)
+        router_name = kebab_case(model.__name__) + 's'
         self.register(r'%s' % router_name, self.get_view_set(model))
 
     def get_view_set(self, model):
@@ -24,10 +23,7 @@ class CustomRouter(routers.DefaultRouter):
 
 
 router = CustomRouter()
-router.register_by_model(ToolSetting)
-router.register_by_model(PartProbe)
-router.register_by_model(ToolBreakage)
-router.register('machine-tool-element', MachineToolElementViewSet)
+router.register_by_model(MachineToolRequirement)
 
 urlpatterns = [
     url(r'^', include(router.urls))
