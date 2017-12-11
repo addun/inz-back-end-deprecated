@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from tree.models import Node, Tag, TagMachineToolRequirement
+from tree.models import Node, NodeMachineToolRequirement
 
 
 class RecursiveField(serializers.Serializer):
@@ -9,25 +9,12 @@ class RecursiveField(serializers.Serializer):
         return serializer.data
 
 
-class TagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        fields = '__all__'
-
-
 class NodeTreeSerializer(serializers.ModelSerializer):
     children = RecursiveField(many=True)
-    tags = TagSerializer(many=True)
 
     class Meta:
         model = Node
-        fields = [
-            'id',
-            'parent',
-            'value',
-            'tags',
-            'children',
-        ]
+        fields = '__all__'
 
 
 class NodeSerializer(serializers.ModelSerializer):
@@ -36,7 +23,7 @@ class NodeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class TagMachineToolRequirementSerializer(serializers.ModelSerializer):
+class NodeMachineToolRequirementSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TagMachineToolRequirement
+        model = NodeMachineToolRequirement
         fields = '__all__'

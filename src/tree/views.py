@@ -7,8 +7,8 @@ from rest_framework import viewsets, generics
 
 from machinery.models import MachineToolRequirement
 from machinery.serializers.machine_tool_requirement import MachineToolRequirementSerializer
-from tree.models import Node, Tag, TagMachineToolRequirement
-from tree.serializers import NodeSerializer, NodeTreeSerializer, TagSerializer, TagMachineToolRequirementSerializer
+from tree.models import Node, NodeMachineToolRequirement
+from tree.serializers import NodeSerializer, NodeTreeSerializer, NodeMachineToolRequirementSerializer
 
 
 class NodeViewSet(viewsets.ModelViewSet):
@@ -16,14 +16,9 @@ class NodeViewSet(viewsets.ModelViewSet):
     serializer_class = NodeSerializer
 
 
-class TagMachineToolRequirementViewSet(viewsets.ModelViewSet):
-    queryset = TagMachineToolRequirement.objects.all()
-    serializer_class = TagMachineToolRequirementSerializer
-
-
-class TagViewSet(viewsets.ModelViewSet):
-    queryset = Tag.objects.all()
-    serializer_class = TagSerializer
+class NodeMachineToolRequirementViewSet(viewsets.ModelViewSet):
+    queryset = NodeMachineToolRequirement.objects.all()
+    serializer_class = NodeMachineToolRequirementSerializer
 
 
 class NodeTreeList(generics.ListAPIView):
@@ -31,9 +26,9 @@ class NodeTreeList(generics.ListAPIView):
     queryset = Node.objects.filter(parent__isnull=True)
 
 
-class MachineToolRequirementWithTag(generics.ListAPIView):
+class MachineToolRequirementInNode(generics.ListAPIView):
     serializer_class = MachineToolRequirementSerializer
 
     def get_queryset(self):
-        tag_pk = self.kwargs['pk']
-        return MachineToolRequirement.objects.filter(tagmachinetoolrequirement__tag=tag_pk)
+        node_pk = self.kwargs['pk']
+        return MachineToolRequirement.objects.filter(nodemachinetoolrequirement__node=node_pk)
