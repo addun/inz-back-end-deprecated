@@ -2,8 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
-from machinery.models.machine_tool_requirement import MachineToolRequirement
+from enginery.models import MachineToolSpecification
 
 
 class Node(models.Model):
@@ -14,6 +13,6 @@ class Node(models.Model):
         return self.value
 
 
-class NodeMachineToolRequirement(models.Model):
+class MachineToolSpecificationInNode(models.Model):
     node = models.ForeignKey(Node, on_delete=models.CASCADE)
-    machine_tool_requirement = models.ForeignKey(MachineToolRequirement, on_delete=models.CASCADE)
+    machine_tool_requirement = models.ForeignKey(MachineToolSpecification, on_delete=models.CASCADE)

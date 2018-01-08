@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from tree.models import Node, NodeMachineToolRequirement
+from tree.models import Node, MachineToolSpecificationInNode
 
 
 class RecursiveField(serializers.Serializer):
@@ -23,7 +23,7 @@ class NodeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class NodeMachineToolRequirementSerializer(serializers.ModelSerializer):
+class MachineToolSpecificationInNodeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = NodeMachineToolRequirement
+        model = MachineToolSpecificationInNode
         fields = '__all__'

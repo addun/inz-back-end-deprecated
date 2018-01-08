@@ -20,8 +20,9 @@ from django.contrib import admin
 
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
-                  url(r'^machinery/', include('machinery.urls')),
+                  # url(r'^machinery/', include('machinery.urls')),
                   url(r'^tree/', include('tree.urls')),
+                  url(r'^enginery/', include('enginery.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

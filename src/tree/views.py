@@ -2,13 +2,12 @@
 from __future__ import print_function
 from __future__ import unicode_literals
 
-# Create your views here.
 from rest_framework import viewsets, generics
 
-from machinery.models import MachineToolRequirement
-from machinery.serializers.machine_tool_requirement import MachineToolRequirementSerializer
-from tree.models import Node, NodeMachineToolRequirement
-from tree.serializers import NodeSerializer, NodeTreeSerializer, NodeMachineToolRequirementSerializer
+from enginery.models import MachineToolSpecification
+from enginery.serializers import MachineToolSpecificationSerializer
+from tree.models import Node, MachineToolSpecificationInNode
+from tree.serializers import NodeSerializer, NodeTreeSerializer, MachineToolSpecificationInNodeSerializer
 
 
 class NodeViewSet(viewsets.ModelViewSet):
@@ -16,19 +15,19 @@ class NodeViewSet(viewsets.ModelViewSet):
     serializer_class = NodeSerializer
 
 
-class NodeMachineToolRequirementViewSet(viewsets.ModelViewSet):
-    queryset = NodeMachineToolRequirement.objects.all()
-    serializer_class = NodeMachineToolRequirementSerializer
-
-
 class NodeTreeList(generics.ListAPIView):
     serializer_class = NodeTreeSerializer
     queryset = Node.objects.filter(parent__isnull=True)
 
 
-class MachineToolRequirementInNode(generics.ListAPIView):
-    serializer_class = MachineToolRequirementSerializer
+class MachineToolSpecificationInNodeViewSet(viewsets.ModelViewSet):
+    serializer_class = MachineToolSpecificationInNodeSerializer
+    queryset = MachineToolSpecificationInNode.objects.all()
+
+
+class MachineToolSpecificationInNodeList(generics.ListAPIView):
+    serializer_class = MachineToolSpecificationSerializer
 
     def get_queryset(self):
         node_pk = self.kwargs['pk']
-        return MachineToolRequirement.objects.filter(nodemachinetoolrequirement__node=node_pk)
+        return MachineToolSpecification.objects.filter(machinetoolspecificationinnode__node=node_pk)

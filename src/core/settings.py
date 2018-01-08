@@ -45,9 +45,11 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_cleanup',
     'rest_framework',
+    'django_filters',
     'corsheaders',
 
-    'machinery',
+    # 'machinery',
+    'enginery',
     'tree',
 ]
 
@@ -88,7 +90,8 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
         'rest_framework.renderers.JSONRenderer',
         'rest_framework_xml.renderers.XMLRenderer',
-    )
+    ),
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
 
 # Database
