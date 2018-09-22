@@ -15,7 +15,7 @@ Aby aplikacja mogła połączyć z bazą danych musi zostać odpowiednio skonfig
 W tym celu należy utworzyć plik o nazwie `db.conf` w katalogu głównym aplikacji.
 Przykładowa konfiguracja została zapisana w pliku `db.example.conf`.
 
-## Uruchamianie aplikacji
+## Uruchomienie aplikacji
 ```bash
 $ pip install -r req.txt
 $ cd ./src
@@ -24,7 +24,7 @@ $ python manager.py runserver
 ```
 Aplikacja domyślnie uruchamia się na [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-## Tworzenie administratora
+## Tworzenie konta administratora
 ```bash
 $ python manager.py createsuperuser
 ```
