@@ -48,8 +48,7 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
 
-    # 'machinery',
-    'enginery',
+    'machinery',
     'tree',
 ]
 

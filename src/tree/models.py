@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from enginery.models import MachineToolSpecification
+from machinery.models import MachineToolSpecification
 
 
 class Node(models.Model):
