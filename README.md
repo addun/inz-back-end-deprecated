@@ -1,7 +1,10 @@
 # DEPRECATED
 
 Te repozytorium zostało porzucone ze wględu na złożoność modelu do zaimplementowania.
-Nowy serwis Back-End'owy znajduje się [tutaj](https://github.com/inzadrianbury/back-end)
+Nowy serwis Back-End'owy znajduje się [tutaj](https://github.com/inzadrianbury/back-end).
+
+Schemat bazy danych jaki został utworzony przed porzuceniem projektu:
+![Schemat bazy danych](https://raw.githubusercontent.com/inzadrianbury/back-end-deprecated/master/schemat.png "Utworzony schemat bazy danych")
 
 ## Wymagania
 * Python 2.7
